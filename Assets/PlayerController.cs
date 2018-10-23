@@ -54,5 +54,12 @@ public class PlayerController : MonoBehaviour {
 		else{
 			this.animator.speed = 1.0f;
 		}
+
+	}
+	
+	// ゴールに到達
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		Debug.Log("ゴール");
 	}
 }
