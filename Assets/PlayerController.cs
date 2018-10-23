@@ -19,8 +19,10 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// ジャンプする
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.UpArrow) && this.rigid2D.velocity.y == 0)
 		{
+	
+			this.animator.SetTrigger("JumpTrigger");
 			this.rigid2D.AddForce(transform.up * this.jumpForce);
 		}
 
@@ -45,6 +47,12 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		// プレイヤの速度に応じてアニメーション速度を変える
-		this.animator.speed = speedx / 2.0f;
+		if (this.rigid2D.velocity.y == 0)
+		{
+			this.animator.speed = speedx / 2.0f;
+		}
+		else{
+			this.animator.speed = 1.0f;
+		}
 	}
 }
