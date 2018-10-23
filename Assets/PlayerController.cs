@@ -56,6 +56,11 @@ public class PlayerController : MonoBehaviour {
 			this.animator.speed = 1.0f;
 		}
 
+		if(transform.position.y < -10)
+		{
+			SceneManager.LoadScene("GameScene");
+		}
+
 	}
 	
 	// ゴールに到達
